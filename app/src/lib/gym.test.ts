@@ -9,7 +9,7 @@
  * del runner: la lib solo importa tipos, que se borran en runtime.
  */
 import type { TipoSesion } from '../models/gym';
-import { epley, fechaLocalISO, getTipoSesionDelDia, labelSesion } from './gym';
+import { epley, fechaLocalISO, getTipoSesionDelDia, labelSesion, slugify } from './gym';
 
 describe('getTipoSesionDelDia', () => {
   // Julio 2026: día 5 = domingo, 6 = lunes … 11 = sábado. Un caso por día.
@@ -57,6 +57,27 @@ describe('epley', () => {
 
   it('con 0 reps devuelve el peso tal cual', () => {
     expect(epley(80, 0)).toBe(80);
+  });
+});
+
+describe('slugify', () => {
+  it('minúsculas y espacios → guiones', () => {
+    expect(slugify('Press banca con barra')).toBe('press-banca-con-barra');
+  });
+
+  it('quita acentos (diacríticos)', () => {
+    expect(slugify('Elevación de cuádriceps')).toBe('elevacion-de-cuadriceps');
+    expect(slugify('ÁÉÍÓÚ')).toBe('aeiou');
+  });
+
+  it('colapsa signos y espacios múltiples en un solo guion', () => {
+    expect(slugify('Remo en polea (agarre neutro)')).toBe('remo-en-polea-agarre-neutro');
+    expect(slugify('  Múltiples   espacios  ')).toBe('multiples-espacios');
+  });
+
+  it('no deja guiones al principio ni al final', () => {
+    expect(slugify('¡Hola!')).toBe('hola');
+    expect(slugify('Press francés o fondos')).toBe('press-frances-o-fondos');
   });
 });
 

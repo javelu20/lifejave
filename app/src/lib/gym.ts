@@ -50,3 +50,21 @@ export function fechaLocalISO(fecha: Date = new Date()): string {
   const dia = String(fecha.getDate()).padStart(2, '0');
   return `${anio}-${mes}-${dia}`;
 }
+
+/**
+ * Convierte el nombre de un ejercicio en un slug estable para buscar su imagen
+ * en el mapa estático (ver src/lib/imagenesEjercicios.ts): minúsculas, sin
+ * acentos, y todo lo no alfanumérico colapsado a guiones (sin guiones al borde).
+ *
+ * 'Press banca con barra'         → 'press-banca-con-barra'
+ * 'Elevación de cuádriceps'       → 'elevacion-de-cuadriceps'
+ * 'Remo en polea (agarre neutro)' → 'remo-en-polea-agarre-neutro'
+ */
+export function slugify(nombre: string): string {
+  return nombre
+    .normalize('NFD') // separa cada letra de su acento (é → e + combinante)
+    .replace(/\p{Diacritic}/gu, '') // borra los diacríticos ya separados
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-') // cualquier no alfanumérico → guion
+    .replace(/^-+|-+$/g, ''); // sin guiones sobrantes al principio/final
+}

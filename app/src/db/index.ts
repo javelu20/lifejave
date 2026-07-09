@@ -172,10 +172,14 @@ export async function crearSesion(nueva: NuevaSesion): Promise<number> {
   return resultado.lastInsertRowId;
 }
 
-/** Inserta una serie asociada a una sesión existente. */
-export async function agregarSerie(nueva: NuevaSerie): Promise<void> {
+/**
+ * Inserta una serie asociada a una sesión existente y devuelve su id. El flujo
+ * guiado guarda ese id para poder RE-guardar (UPDATE) la misma fila sin duplicar
+ * si el usuario reconfirma la serie (ver actualizarSerie).
+ */
+export async function agregarSerie(nueva: NuevaSerie): Promise<number> {
   const db = await initDB();
-  await db.runAsync(
+  const resultado = await db.runAsync(
     'INSERT INTO serie (sesion_id, ejercicio, numero_serie, peso_kg, reps, rir) VALUES (?, ?, ?, ?, ?, ?)',
     nueva.sesion_id,
     nueva.ejercicio,
@@ -183,6 +187,26 @@ export async function agregarSerie(nueva: NuevaSerie): Promise<void> {
     nueva.peso_kg ?? null,
     nueva.reps ?? null,
     nueva.rir ?? null,
+  );
+  return resultado.lastInsertRowId;
+}
+
+/**
+ * Actualiza los valores (peso/reps/rir) de una serie ya insertada, por id. Es la
+ * otra mitad del ✓ idempotente: reconfirmar una serie edita su fila en vez de
+ * crear otra. No cambia sesion_id/ejercicio/numero_serie (la identidad de la fila).
+ */
+export async function actualizarSerie(
+  id: number,
+  valores: Pick<Serie, 'peso_kg' | 'reps' | 'rir'>,
+): Promise<void> {
+  const db = await initDB();
+  await db.runAsync(
+    'UPDATE serie SET peso_kg = ?, reps = ?, rir = ? WHERE id = ?',
+    valores.peso_kg ?? null,
+    valores.reps ?? null,
+    valores.rir ?? null,
+    id,
   );
 }
 
