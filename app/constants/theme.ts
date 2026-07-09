@@ -16,6 +16,11 @@ export const Colors = {
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    // Tokens semánticos (Finanzas: balance +/−, estados de presupuesto).
+    // Valores accesibles sobre fondo claro.
+    success: '#1a7f37',
+    warning: '#9a6700',
+    danger: '#c0392b',
   },
   dark: {
     text: '#ECEDEE',
@@ -24,6 +29,10 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    // Mismos tokens, con contraste sobre fondo oscuro.
+    success: '#3fb950',
+    warning: '#d29922',
+    danger: '#f85149',
   },
 };
 

@@ -20,7 +20,29 @@ import type { NuevaSerie, NuevaSesion, Serie, Sesion } from '@/src/models/gym';
 
 const DB_NAME = 'lifejave.db';
 /** Versión de esquema. Subir e ir añadiendo bloques de migración al crecer. */
-const DB_VERSION = 1;
+const DB_VERSION = 2;
+
+/**
+ * Las 13 categorías de gasto de FINANZAS.md, con ids ESTABLES 1..13 y su emoji
+ * en `icono`. Los ingresos no usan categoría (guardan `fuente` libre), por eso
+ * todas son de tipo 'gasto'. El seed las inserta con INSERT OR IGNORE: es
+ * idempotente y no las duplica al reabrir.
+ */
+const CATEGORIAS_SEED: { id: number; nombre: string; icono: string }[] = [
+  { id: 1, nombre: 'Comida / Supermercado', icono: '🛒' },
+  { id: 2, nombre: 'Comer fuera / Delivery', icono: '🍔' },
+  { id: 3, nombre: 'Gym / Suplementos', icono: '🏋️' },
+  { id: 4, nombre: 'Transporte', icono: '🚌' },
+  { id: 5, nombre: 'Vivienda / Servicios', icono: '🏠' },
+  { id: 6, nombre: 'Telefonía / Datos', icono: '📱' },
+  { id: 7, nombre: 'Ocio', icono: '🎉' },
+  { id: 8, nombre: 'Salud', icono: '💊' },
+  { id: 9, nombre: 'Educación', icono: '📚' },
+  { id: 10, nombre: 'Ropa / Personal', icono: '👕' },
+  { id: 11, nombre: 'Deudas / Préstamos', icono: '💸' },
+  { id: 12, nombre: 'Ahorro / Inversión', icono: '💰' },
+  { id: 13, nombre: 'Otros', icono: '🔧' },
+];
 
 /**
  * Promesa memoizada de la conexión ya migrada. `null` hasta la primera llamada;
@@ -38,9 +60,12 @@ async function abrirYMigrar(): Promise<SQLite.SQLiteDatabase> {
   const fila = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
   const version = fila?.user_version ?? 0;
 
+  // Migración incremental y acumulativa: cada bloque `if (version < N)` aplica
+  // SOLO los cambios de esa versión. Instalación limpia (0) corre v1 y v2;
+  // instalación existente (1) corre solo v2, sin tocar sesion/serie.
   if (version < DB_VERSION) {
-    if (version === 0) {
-      // v1: esquema base (tal cual ARQUITECTURA.md, sección Módulo Gym).
+    if (version < 1) {
+      // v1: esquema base del módulo Gym (tal cual ARQUITECTURA.md).
       await db.execAsync(`
         CREATE TABLE IF NOT EXISTS sesion (
           id            INTEGER PRIMARY KEY,
@@ -60,7 +85,53 @@ async function abrirYMigrar(): Promise<SQLite.SQLiteDatabase> {
         );
       `);
     }
-    // Futuras versiones: if (version < 2) { ... }, etc.
+
+    if (version < 2) {
+      // v2: módulo Finanzas (tal cual ARQUITECTURA.md, sección Módulo Finanzas).
+      // UNIQUE(categoria_id) en presupuesto: un solo tope por categoría, para que
+      // ni el seed ni upsertPresupuesto puedan crear dos topes de la misma.
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS categoria (
+          id      INTEGER PRIMARY KEY,
+          nombre  TEXT NOT NULL,
+          icono   TEXT,
+          tipo    TEXT NOT NULL
+        );
+        CREATE TABLE IF NOT EXISTS movimiento (
+          id            INTEGER PRIMARY KEY,
+          tipo          TEXT NOT NULL,
+          monto         REAL NOT NULL,
+          fecha         TEXT NOT NULL,
+          categoria_id  INTEGER REFERENCES categoria(id),
+          fuente        TEXT,
+          metodo_pago   TEXT,
+          recurrente    INTEGER DEFAULT 0,
+          nota          TEXT
+        );
+        CREATE TABLE IF NOT EXISTS presupuesto (
+          id             INTEGER PRIMARY KEY,
+          categoria_id   INTEGER REFERENCES categoria(id),
+          monto_mensual  REAL NOT NULL,
+          UNIQUE(categoria_id)
+        );
+      `);
+
+      // Seed idempotente de las 13 categorías de gasto (ids estables 1..13).
+      for (const cat of CATEGORIAS_SEED) {
+        await db.runAsync(
+          "INSERT OR IGNORE INTO categoria (id, nombre, icono, tipo) VALUES (?, ?, ?, 'gasto')",
+          cat.id,
+          cat.nombre,
+          cat.icono,
+        );
+      }
+
+      // Presupuesto por defecto: Comida / Supermercado = 800 Bs (FINANZAS.md).
+      // INSERT OR IGNORE + UNIQUE(categoria_id) evita duplicar al reabrir.
+      await db.runAsync(
+        'INSERT OR IGNORE INTO presupuesto (categoria_id, monto_mensual) VALUES (1, 800)',
+      );
+    }
 
     await db.execAsync(`PRAGMA user_version = ${DB_VERSION};`);
   }
