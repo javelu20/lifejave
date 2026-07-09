@@ -1,4 +1,165 @@
 {
-  "recetas": [],
-  "lista_compras": []
+  "comidas_fijas": {
+    "desayuno": {
+      "nombre": "Avena con leche + 2 huevos + plátano",
+      "proteina_g": 25
+    },
+    "snack": {
+      "nombre": "Yogur o 2 huevos duros / puñado de maní",
+      "proteina_g": 20
+    },
+    "segunda_comida": {
+      "nombre": "Repetir receta del día o atún/huevo con arroz",
+      "proteina_g": 35
+    }
+  },
+  "recetas": [
+    {
+      "dia": "lunes",
+      "nombre": "Pollo salteado con arroz y ensalada",
+      "ingredientes": [
+        { "item": "Pechuga/muslo de pollo", "cantidad": "180 g" },
+        { "item": "Arroz", "cantidad": "1 taza cocido" },
+        { "item": "Tomate", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Zanahoria rallada", "cantidad": "" },
+        { "item": "Aceite", "cantidad": "" },
+        { "item": "Sal", "cantidad": "" },
+        { "item": "Comino", "cantidad": "" }
+      ],
+      "pasos": [
+        "Saltea el pollo en trozos con cebolla",
+        "Sirve con arroz y ensalada fresca"
+      ],
+      "kcal": 600,
+      "proteina_g": 45
+    },
+    {
+      "dia": "martes",
+      "nombre": "Lentejas guisadas con arroz y huevo",
+      "ingredientes": [
+        { "item": "Lenteja", "cantidad": "1 taza cocida" },
+        { "item": "Arroz", "cantidad": "" },
+        { "item": "Huevo", "cantidad": "1-2" },
+        { "item": "Zanahoria", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Tomate", "cantidad": "" }
+      ],
+      "pasos": [
+        "Guisa la lenteja con verduras picadas",
+        "Sirve con arroz y un huevo frito/duro encima"
+      ],
+      "kcal": 620,
+      "proteina_g": 35
+    },
+    {
+      "dia": "miércoles",
+      "nombre": "Picadillo de soya con papa y arroz",
+      "ingredientes": [
+        { "item": "Soya texturizada", "cantidad": "60 g seca" },
+        { "item": "Papa en cubos", "cantidad": "" },
+        { "item": "Arroz", "cantidad": "" },
+        { "item": "Tomate", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Aceite", "cantidad": "" },
+        { "item": "Condimentos", "cantidad": "" }
+      ],
+      "pasos": [
+        "Hidrata la soya en agua caliente 10 min y escurre",
+        "Saltea como carne molida con verduras y papa"
+      ],
+      "kcal": 580,
+      "proteina_g": 38
+    },
+    {
+      "dia": "jueves",
+      "nombre": "Atún guisado con arroz y huevo",
+      "ingredientes": [
+        { "item": "Atún en lata", "cantidad": "1" },
+        { "item": "Arroz", "cantidad": "" },
+        { "item": "Huevo", "cantidad": "" },
+        { "item": "Tomate", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Limón", "cantidad": "" },
+        { "item": "Aceite", "cantidad": "" }
+      ],
+      "pasos": [
+        "Sofríe cebolla y tomate, agrega el atún",
+        "Acompaña con arroz y huevo (también sirve frío como ensalada)"
+      ],
+      "kcal": 560,
+      "proteina_g": 40
+    },
+    {
+      "dia": "viernes",
+      "nombre": "Pollo al horno con papa y zanahoria",
+      "ingredientes": [
+        { "item": "Pollo", "cantidad": "2 presas" },
+        { "item": "Papa", "cantidad": "" },
+        { "item": "Zanahoria", "cantidad": "" },
+        { "item": "Aceite", "cantidad": "" },
+        { "item": "Ajo", "cantidad": "" },
+        { "item": "Sal", "cantidad": "" },
+        { "item": "Orégano", "cantidad": "" }
+      ],
+      "pasos": [
+        "Pon todo en la bandeja al horno ~40 min",
+        "Cero esfuerzo; ideal para cocinar de más y guardar"
+      ],
+      "kcal": 640,
+      "proteina_g": 48
+    },
+    {
+      "dia": "sábado",
+      "nombre": "Tortilla de huevo con verduras y arroz",
+      "ingredientes": [
+        { "item": "Huevo", "cantidad": "3" },
+        { "item": "Zanahoria", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Tomate", "cantidad": "" },
+        { "item": "Arroz", "cantidad": "" },
+        { "item": "Aceite", "cantidad": "" }
+      ],
+      "pasos": [
+        "Bate los huevos con verduras picadas",
+        "Cuaja en sartén tipo tortilla y sirve con arroz (súbela con un poco de queso o atún)"
+      ],
+      "kcal": 520,
+      "proteina_g": 28
+    },
+    {
+      "dia": "domingo",
+      "nombre": "Sopa/guiso de lenteja con pollo",
+      "ingredientes": [
+        { "item": "Lenteja", "cantidad": "" },
+        { "item": "Pollo", "cantidad": "150 g" },
+        { "item": "Papa", "cantidad": "" },
+        { "item": "Zanahoria", "cantidad": "" },
+        { "item": "Cebolla", "cantidad": "" },
+        { "item": "Arroz", "cantidad": "opcional" }
+      ],
+      "pasos": [
+        "Guiso rendidor: hierve pollo, agrega lenteja, papa y zanahoria",
+        "Rinde para 2 días; cocina de más para el lunes"
+      ],
+      "kcal": 640,
+      "proteina_g": 45
+    }
+  ],
+  "lista_compras": [
+    { "item": "Pollo (pechuga/muslo)", "cantidad": "1.8 kg", "precio_bs": 45, "categoria": "proteina" },
+    { "item": "Huevos", "cantidad": "30 unid. (1 maple)", "precio_bs": 16, "categoria": "proteina" },
+    { "item": "Lenteja", "cantidad": "1 kg", "precio_bs": 13, "categoria": "proteina" },
+    { "item": "Soya texturizada", "cantidad": "0.5 kg", "precio_bs": 10, "categoria": "proteina" },
+    { "item": "Atún en lata", "cantidad": "2 latas", "precio_bs": 18, "categoria": "proteina" },
+    { "item": "Arroz", "cantidad": "2 kg", "precio_bs": 15, "categoria": "carbohidrato" },
+    { "item": "Avena", "cantidad": "1 kg", "precio_bs": 11, "categoria": "carbohidrato" },
+    { "item": "Papa", "cantidad": "3 kg", "precio_bs": 12, "categoria": "carbohidrato" },
+    { "item": "Zanahoria", "cantidad": "1 kg", "precio_bs": 5, "categoria": "verdura" },
+    { "item": "Cebolla", "cantidad": "1 kg", "precio_bs": 6, "categoria": "verdura" },
+    { "item": "Tomate", "cantidad": "1 kg", "precio_bs": 8, "categoria": "verdura" },
+    { "item": "Leche", "cantidad": "3 L", "precio_bs": 18, "categoria": "lacteo" },
+    { "item": "Plátano", "cantidad": "10 unid.", "precio_bs": 8, "categoria": "fruta" },
+    { "item": "Aceite / sal / condimentos", "cantidad": "prorrateo semanal", "precio_bs": 10, "categoria": "otros" }
+  ]
 }
