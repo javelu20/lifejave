@@ -1,1 +1,50 @@
-{}
+{
+  "PushA": [
+    { "ejercicio": "Press banca con barra", "series": 4, "reps": "6-8", "descanso_s": 150, "rir": "1-2" },
+    { "ejercicio": "Press inclinado con mancuernas", "series": 3, "reps": "8-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Press militar sentado", "series": 3, "reps": "8-10", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Elevaciones laterales", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Press francés o fondos", "series": 3, "reps": "8-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Extensión tríceps en polea", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" }
+  ],
+  "PullA": [
+    { "ejercicio": "Dominadas o jalón al pecho", "series": 4, "reps": "6-10", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Remo con barra", "series": 4, "reps": "8-10", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Remo en polea (agarre neutro)", "series": 3, "reps": "10-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Face pull", "series": 3, "reps": "15-20", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Curl con barra", "series": 3, "reps": "8-12", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Curl martillo", "series": 3, "reps": "10-12", "descanso_s": 60, "rir": "0-1" }
+  ],
+  "LegsA": [
+    { "ejercicio": "Sentadilla con barra", "series": 4, "reps": "6-8", "descanso_s": 180, "rir": "1-2" },
+    { "ejercicio": "Prensa de pierna", "series": 3, "reps": "10-12", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Peso muerto rumano", "series": 3, "reps": "8-10", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Extensión de cuádriceps", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Curl femoral tumbado", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Elevación de pantorrilla", "series": 4, "reps": "15-20", "descanso_s": 45, "rir": "0-1" }
+  ],
+  "PushB": [
+    { "ejercicio": "Press militar con barra", "series": 4, "reps": "6-8", "descanso_s": 150, "rir": "1-2" },
+    { "ejercicio": "Press inclinado con barra", "series": 3, "reps": "8-10", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Aperturas en polea o pec-deck", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Elevaciones laterales", "series": 4, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Press cerrado con barra", "series": 3, "reps": "8-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Extensión sobre la cabeza (mancuerna)", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" }
+  ],
+  "PullB": [
+    { "ejercicio": "Jalón agarre ancho", "series": 4, "reps": "8-12", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Remo con mancuerna (unilateral)", "series": 3, "reps": "10-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Pull-over en polea", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Face pull", "series": 3, "reps": "15-20", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Curl inclinado con mancuernas", "series": 3, "reps": "10-12", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Curl predicador o concentrado", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" }
+  ],
+  "LegsB": [
+    { "ejercicio": "Peso muerto rumano (pesado)", "series": 4, "reps": "6-8", "descanso_s": 180, "rir": "1-2" },
+    { "ejercicio": "Sentadilla búlgara o hack", "series": 3, "reps": "10-12", "descanso_s": 120, "rir": "1-2" },
+    { "ejercicio": "Hip thrust", "series": 3, "reps": "10-12", "descanso_s": 90, "rir": "1-2" },
+    { "ejercicio": "Curl femoral sentado", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Extensión de cuádriceps", "series": 3, "reps": "12-15", "descanso_s": 60, "rir": "0-1" },
+    { "ejercicio": "Elevación de pantorrilla sentado", "series": 4, "reps": "15-20", "descanso_s": 45, "rir": "0-1" }
+  ]
+}
