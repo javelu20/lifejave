@@ -29,7 +29,7 @@ const IMAGENES_EJERCICIOS: Record<string, ImageSourcePropType> = {
   'press-militar-sentado': require('@/assets/ejercicios/press-militar-sentado.png'),           // Press militar sentado
   'elevaciones-laterales': require('@/assets/ejercicios/elevaciones-laterales.png'),           // Elevaciones laterales (también en Push B)
   'press-frances-o-fondos': require('@/assets/ejercicios/press-frances-o-fondos.png'),         // Press francés o fondos
-  'extension-triceps-en-polea': require('@/assets/ejercicios/extension-triceps-en-polea.png'), // Extensión tríceps en polea
+  //   (Extensión tríceps en polea → PNG eliminado: rompía AAPT en Android; cae al placeholder)
 
   // ── PULL A ──────────────────────────────────────────────────────────────
   'dominadas-o-jalon-al-pecho': require('@/assets/ejercicios/dominadas-o-jalon-al-pecho.png'), // Dominadas o jalón al pecho
@@ -40,7 +40,7 @@ const IMAGENES_EJERCICIOS: Record<string, ImageSourcePropType> = {
   'curl-martillo': require('@/assets/ejercicios/curl-martillo.png'),                           // Curl martillo
 
   // ── LEGS A ──────────────────────────────────────────────────────────────
-  'sentadilla-con-barra': require('@/assets/ejercicios/sentadilla-con-barra.png'),             // Sentadilla con barra
+  //   (Sentadilla con barra → PNG eliminado: rompía AAPT en Android; cae al placeholder)
   'prensa-de-pierna': require('@/assets/ejercicios/prensa-de-pierna.png'),                     // Prensa de pierna
   'peso-muerto-rumano': require('@/assets/ejercicios/peso-muerto-rumano.png'),                 // Peso muerto rumano
   'extension-de-cuadriceps': require('@/assets/ejercicios/extension-de-cuadriceps.png'),       // Extensión de cuádriceps (también en Legs B)
@@ -56,7 +56,7 @@ const IMAGENES_EJERCICIOS: Record<string, ImageSourcePropType> = {
   'extension-sobre-la-cabeza-mancuerna': require('@/assets/ejercicios/extension-sobre-la-cabeza-mancuerna.png'), // Extensión sobre la cabeza (mancuerna)
 
   // ── PULL B ──────────────────────────────────────────────────────────────
-  'jalon-agarre-ancho': require('@/assets/ejercicios/jalon-agarre-ancho.png'),                 // Jalón agarre ancho
+  //   (Jalón agarre ancho → PNG eliminado: rompía AAPT en Android; cae al placeholder)
   'remo-con-mancuerna-unilateral': require('@/assets/ejercicios/remo-con-mancuerna-unilateral.png'), // Remo con mancuerna (unilateral)
   'pull-over-en-polea': require('@/assets/ejercicios/pull-over-en-polea.png'),                 // Pull-over en polea
   //   (Face pull → usa 'face-pull', ya listada en Pull A)
